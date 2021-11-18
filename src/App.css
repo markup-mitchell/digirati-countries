@@ -18,25 +18,25 @@
   padding: 2rem;
   display: grid;
   grid-template-columns: 50% 50%;
+  grid-gap: 1.5rem;
 }
 
 .country h2 {
   font-size: 1rem;
-  line-height: 1;
+  margin: 0;
 }
 
 .country p {
   font-size: 1.5rem;
-  line-height: 1;
+  margin: 0;
 }
 
 .country__heading {
   grid-column: 1 / span 2;
 }
 
-.country__title-row {
-  display: flex;
-  flex-direction: column;
+.country__datum {
+  margin-top: 2rem;
 }
 
 .country__name-flag {
@@ -45,5 +45,5 @@
 
 .country__flag {
   width: 100%;
-  /* align-self: flex-end; */
+  align-self: center;
 }
