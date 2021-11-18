@@ -21,26 +21,29 @@ function App() {
 
   return (
     <div className="App">
-      <nav>
-        <fieldset>
-          <legend>Region Select</legend>
-          {
-            ["Africa", "Americas", "Asia", "Europe", "Oceania"].map( ( region ) => <RadioButton value={region} key={region} radioSet="Region" handler={regionHandler} /> )
-          }
-        </fieldset>
+      <div className="layout">
+        <nav>
+          <fieldset className="region">
+            <legend>Region Select</legend>
+            {
+              ["Africa", "Americas", "Asia", "Europe", "Oceania"].map( ( region ) => <RadioButton value={region} key={region} radioSet="Region" handler={regionHandler} /> )
+            }
+          </fieldset>
 
-        <fieldset>
-          <legend>Country Select</legend>
-          {
-            countries.map( country => country.region === region && <RadioButton key={country.alpha2Code} value={country.name} radioSet="Country" handler={countryHandler} /> )
-          }
-        </fieldset>
 
-      </nav>
-      <main>
-        {/* Stops app crashing on refresh - potentially prevents countries rendering */}
-        {currentCountry.altSpellings ? <Country country={currentCountry} /> : null}
-      </main>
+          <fieldset className="country-select">
+            <legend>Country Select</legend>
+            {
+              countries.map( country => country.region === region && <RadioButton key={country.alpha2Code} value={country.name} radioSet="Country" handler={countryHandler} /> )
+            }
+          </fieldset>
+
+        </nav>
+        <main>
+          {/* Stops app crashing on refresh - potentially prevents countries rendering */}
+          {currentCountry.altSpellings ? <Country country={currentCountry} /> : null}
+        </main>
+      </div>
     </div>
   );
 }

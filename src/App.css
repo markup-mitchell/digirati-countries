@@ -1,4 +1,49 @@
+.layout {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.region-select {
+  grid-column: 1 / span 2;
+}
+
+.country-select {
+  display: grid;
+  grid-template-columns: nmax-content 1fr;
+}
+
+.country {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.country h2 {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.country p {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.country__heading {
+  grid-column: 1 / span 2;
+}
+
+.country__title-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.country__name-flag {
+  display: inline;
+}
+
 .country__flag {
-  width: 100px;
-  height: auto;
+  width: 100%;
+  /* align-self: flex-end; */
 }
