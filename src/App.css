@@ -209,6 +209,9 @@ input:focus {
 		justify-self: center;
 		margin: 0;
 	}
+	.country__datum {
+		margin-top: 2rem;
+	}
 }
 
 /* radio keyboard :focus */
