@@ -11,7 +11,7 @@ function App() {
       .then( res => res.json() )
       .then( data => setCountries( data ) );
   }, [] );
-  const [region, setRegion] = useState( [] );
+  const [region, setRegion] = useState( null );
   const regionHandler = ( event ) => {
     setRegion( event.target.value );
   };
@@ -32,17 +32,18 @@ function App() {
           </fieldset>
 
 
-          <select className="country-select" name="countries" onChange={countryHandler}>
+          {region ? <select className="country-select" name="countries" onChange={countryHandler}>
             <option value="">Choose a country in {region}</option>
             {
               countries.map( country => country.region === region && <SelectOption key={country.alpha2Code} value={country.name} handler={countryHandler} /> )
             }
-          </select>
+          </select> : null
+          }
 
         </nav>
         <main>
           {/* Stops app crashing on refresh - potentially prevents countries rendering */}
-          {currentCountry.altSpellings ? <Country country={currentCountry} /> : null}
+          {currentCountry.altSpellings ? <Country country={currentCountry} /> : <h1>Select Region & Country</h1>}
         </main>
       </div>
     </div >

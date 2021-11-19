@@ -43,6 +43,8 @@ img {
 .layout {
   display: grid;
   grid-template-columns: 1fr;
+  background-color: aliceblue;
+  min-height: 100vh;
 }
 
 h1 {
@@ -91,8 +93,9 @@ input {
 }
 
 input:checked + label {
-  background-color: #a5dc86;
+  background-color: #000;
   box-shadow: none;
+  color: white;
 }
 
 label {
@@ -132,6 +135,17 @@ label {
 .country {
   display: flex;
   flex-direction: column;
+
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .country__heading {
@@ -190,3 +204,6 @@ label {
     margin: 0;
   }
 }
+
+/* radio keyboard :focus */
+/* hover state */
