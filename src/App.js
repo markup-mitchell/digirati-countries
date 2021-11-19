@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./App.css";
 import RadioButton from './components/RadioButton';
+import SelectOption from './components/SelectOption';
 import Country from './components/Country';
 
 function App() {
@@ -23,20 +24,20 @@ function App() {
     <div className="App">
       <div className="layout">
         <nav>
-          <fieldset className="region">
-            <legend>Region Select</legend>
+          <fieldset className="region-select">
+            <legend className="sr-only">Region Select</legend>
             {
-              ["Africa", "Americas", "Asia", "Europe", "Oceania"].map( ( region ) => <RadioButton value={region} key={region} radioSet="Region" handler={regionHandler} /> )
+              ["Africa", "Americas", "Asia", "Europe", "Oceania"].map( ( regionName ) => <RadioButton value={regionName} key={regionName} radioSet="Region" handler={regionHandler} /> )
             }
           </fieldset>
 
 
-          <fieldset className="country-select">
-            <legend>Country Select</legend>
+          <select className="country-select" name="countries" onChange={countryHandler}>
+            <option value="">Choose a country in {region}</option>
             {
-              countries.map( country => country.region === region && <RadioButton key={country.alpha2Code} value={country.name} radioSet="Country" handler={countryHandler} /> )
+              countries.map( country => country.region === region && <SelectOption key={country.alpha2Code} value={country.name} handler={countryHandler} /> )
             }
-          </fieldset>
+          </select>
 
         </nav>
         <main>
@@ -44,7 +45,7 @@ function App() {
           {currentCountry.altSpellings ? <Country country={currentCountry} /> : null}
         </main>
       </div>
-    </div>
+    </div >
   );
 }
 
